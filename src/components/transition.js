@@ -3,6 +3,7 @@ import {
   TransitionGroup,
   Transition as ReactTransition,
 } from "react-transition-group"
+import styled from "styled-components"
 
 const timeout = 250
 const getTransitionStyles = {
@@ -20,6 +21,16 @@ const getTransitionStyles = {
   },
 }
 
+const TransitionWrapper = styled.div`
+  margin-left: 100px;
+  max-width: 960px;
+
+  @media (max-width: 767px) {
+    margin-left: 0;
+    padding-top: 25px;
+  }
+`
+
 class Transition extends React.PureComponent {
   render() {
     const { children, location } = this.props
@@ -34,14 +45,13 @@ class Transition extends React.PureComponent {
           }}
         >
           {status => (
-            <div
+            <TransitionWrapper
               style={{
                 ...getTransitionStyles[status],
-                marginLeft: 100,
               }}
             >
               {children}
-            </div>
+            </TransitionWrapper>
           )}
         </ReactTransition>
       </TransitionGroup>

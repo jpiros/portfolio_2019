@@ -25,8 +25,15 @@ const WorkCard = styled.div`
   width: 48%;
   margin-bottom: 2rem;
 
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 100%;
+  }
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+
   h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-bottom: 0;
   }
   h5 {

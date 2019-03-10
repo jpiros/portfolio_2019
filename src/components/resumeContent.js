@@ -9,6 +9,9 @@ const ResumeWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   text-align: center;
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
 `
 const ResumeSection = styled.ul`
   list-style: none;

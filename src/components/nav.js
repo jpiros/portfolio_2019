@@ -1,9 +1,10 @@
-import React from "react"
+import React, { Component } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { FiUser, FiHome, FiBriefcase, FiFileText } from "react-icons/fi"
+import { FiUser, FiHome, FiBriefcase, FiFileText, FiMenu } from "react-icons/fi"
 
 import profile from "../images/profile.jpeg"
+import logo from "../images/jp_logo_light.png"
 import constants from "../utils/constants"
 
 const NavContent = styled.aside`
@@ -15,7 +16,17 @@ const NavContent = styled.aside`
   overflow: hidden;
   background: #17181b;
   color: #fff;
-  z-index: 2;
+  z-index: 5;
+  transition: all 0.3s ease;
+
+  @media (max-width: 767px) {
+    left: -200px;
+    transition: all 0.3s ease;
+
+    &.show {
+      left: 0px;
+    }
+  }
 `
 
 const ProfileContent = styled.div`
@@ -61,7 +72,7 @@ const LinkContent = styled.ul`
   li {
     border-bottom: 1px solid #202226;
     color: #777;
-    padding: 0.6rem 0;
+    padding: 1rem 0;
     margin-bottom: 0;
 
     &.selected {
@@ -92,42 +103,100 @@ const LinkContent = styled.ul`
   }
 `
 
-const Nav = ({ location }) => (
-  <>
-    <NavContent>
-      <ProfileContent>
-        <h1>Jason Piros</h1>
-        <img src={profile} alt="Jason Piros" />
-      </ProfileContent>
+const HeaderNav = styled.header`
+  position: fixed;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #000;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 
-      <LinkContent>
-        <li className={location.pathname === "/" ? "selected" : ""}>
-          <Link className="navLink" to="/">
-            <FiHome />
-            <span>Home</span>
-          </Link>
-        </li>
-        <li className={location.pathname === "/about" ? "selected" : ""}>
-          <Link className="navLink" to="/about">
-            <FiUser />
-            <span>About Me</span>
-          </Link>
-        </li>
-        <li className={location.pathname === "/work" ? "selected" : ""}>
-          <Link className="navLink" to="/work">
-            <FiBriefcase />
-            <span>Work</span>
-          </Link>
-        </li>
-        <li className={location.pathname === "/resume" ? "selected" : ""}>
-          <Link className="navLink" to="/resume">
-            <FiFileText />
-            <span>Resume</span>
-          </Link>
-        </li>
-      </LinkContent>
-    </NavContent>
-  </>
-)
+  @media (max-width: 767px) {
+    top: 0%;
+    transition: all 0.3s ease;
+  }
 
-export default Nav
+  h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+  }
+  img {
+    margin: 0 0.5rem 0 0;
+    width: 50px;
+  }
+  .menuToggle {
+    padding: 0.5rem 1rem 0;
+    cursor: pointer;
+    svg {
+      font-size: 2rem;
+    }
+  }
+`
+
+export default class Nav extends Component {
+  state = {
+    navToggled: false,
+  }
+
+  toggleMenu() {
+    this.setState({ navToggled: !this.state.navToggled })
+  }
+
+  render() {
+    const { location } = this.props
+
+    return (
+      <>
+        <HeaderNav>
+          <h1>
+            <img src={logo} alt="Jason Piros Logo" />
+            JASON PIROS
+          </h1>
+          <div className="menuToggle">
+            <FiMenu onClick={() => this.toggleMenu()} />
+          </div>
+        </HeaderNav>
+        <NavContent className={this.state.navToggled ? "show" : ""}>
+          <ProfileContent>
+            <h1>Jason Piros</h1>
+            <img src={profile} alt="Jason Piros" />
+          </ProfileContent>
+
+          <LinkContent>
+            <li className={location.pathname === "/" ? "selected" : ""}>
+              <Link className="navLink" to="/">
+                <FiHome />
+                <span>Home</span>
+              </Link>
+            </li>
+            <li className={location.pathname === "/about" ? "selected" : ""}>
+              <Link className="navLink" to="/about">
+                <FiUser />
+                <span>About Me</span>
+              </Link>
+            </li>
+            <li className={location.pathname === "/work" ? "selected" : ""}>
+              <Link className="navLink" to="/work">
+                <FiBriefcase />
+                <span>Work</span>
+              </Link>
+            </li>
+            <li className={location.pathname === "/resume" ? "selected" : ""}>
+              <Link className="navLink" to="/resume">
+                <FiFileText />
+                <span>Resume</span>
+              </Link>
+            </li>
+          </LinkContent>
+        </NavContent>
+      </>
+    )
+  }
+}

@@ -8,22 +8,33 @@ import logo from "../images/jp_logo_light.png"
 const HomeWrapper = styled.div`
   position: fixed;
   top: 0;
-  left: 120px;
+  left: -1px;
   bottom: -1px;
   right: 0;
 
   img {
     width: 140px;
     margin: 0 1rem 0 0;
+    @media (max-width: 991px) {
+      width: 80px;
+    }
   }
   h1 {
     font-size: 5rem;
     color: #fff;
+
+    @media (max-width: 991px) {
+      font-size: 3rem;
+    }
   }
   p {
     font-size: 2rem;
     color: #fff;
     margin-left: 8px;
+    @media (max-width: 991px) {
+      font-size: 1.5rem;
+      margin-left: 50px;
+    }
   }
 
   .gatsby-background-image-bgImage {
@@ -39,6 +50,11 @@ const HomeWrapper = styled.div`
 
 const HomeSection = styled.div`
   text-align: center;
+  margin-left: 200px;
+
+  @media (max-width: 767px) {
+    margin-left: 0;
+  }
 `
 
 const Home = () => (
