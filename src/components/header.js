@@ -1,42 +1,40 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import styled from "styled-components"
+import { FiUser, FiHome, FiBriefcase, FiFileText } from "react-icons/fi"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import constants from "../utils/constants"
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+const HeaderWrapper = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
+  color: ${constants.primary};
+  font-size: 2rem;
+  margin-bottom: 2.8rem;
+
+  h1 {
+    margin: 0;
+    line-height: 1;
+    font-weight: 400;
+  }
+`
+
+const icons = {
+  user: <FiUser />,
+  home: <FiHome />,
+  work: <FiBriefcase />,
+  resume: <FiFileText />,
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = ({ title, icon }) => {
+  return (
+    <HeaderWrapper>
+      <h1>{title}</h1>
+      {icons[icon]}
+    </HeaderWrapper>
+  )
 }
 
 export default Header
