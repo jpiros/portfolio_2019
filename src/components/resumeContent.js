@@ -152,8 +152,8 @@ const ResumeContent = () => (
             </p>
           </ResumeGroup>
           <ResumeGroup>
-            <span className="endYear">2005</span>
-            <span className="startYear">2011</span>
+            <span className="endYear">20011</span>
+            <span className="startYear">2005</span>
             <h4>University of Hawaii - BBA, Management Information Systems </h4>
             <h5>Honolulu, HI</h5>
             <p>
