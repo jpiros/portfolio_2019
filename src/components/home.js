@@ -23,6 +23,7 @@ const HomeWrapper = styled.div`
   p {
     font-size: 2rem;
     color: #fff;
+    margin-left: 8px;
   }
 
   .gatsby-background-image-bgImage {
@@ -64,7 +65,7 @@ const Home = () => (
                 JASON PIROS
               </h1>
 
-              <p>I am a Frontend Engineer</p>
+              <p>Frontend Engineer</p>
             </HomeSection>
           </BackgroundImage>
         </HomeWrapper>
