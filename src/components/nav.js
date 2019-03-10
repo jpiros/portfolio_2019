@@ -15,6 +15,7 @@ const NavContent = styled.aside`
   overflow: hidden;
   background: #17181b;
   color: #fff;
+  z-index: 2;
 `
 
 const ProfileContent = styled.div`
