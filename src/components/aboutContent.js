@@ -1,21 +1,8 @@
-import React, { Component } from "react"
+import React from "react"
 import styled from "styled-components"
 
 import Header from "./header"
 import Section from "./section"
-
-const AboutImage = styled.img`
-  max-width: 40%;
-  margin: 2rem;
-`
-
-const AboutWrapper = styled.div`
-  display: flex;
-`
-
-const AboutSection = styled.div`
-  color: #fff;
-`
 
 const SkillSection = styled.div`
   display: flex;
