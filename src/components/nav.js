@@ -10,6 +10,7 @@ import {
   FiMail,
 } from "react-icons/fi"
 
+import Social from "./social"
 import profile from "../images/profile.jpeg"
 import logo from "../images/jp_logo_light.png"
 import constants from "../utils/constants"
@@ -147,6 +148,17 @@ const HeaderNav = styled.header`
   }
 `
 
+const FooterContent = styled.footer`
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 2rem;
+  color: #777;
+  height: 50px;
+`
+
 export default class Nav extends Component {
   state = {
     navToggled: false,
@@ -208,6 +220,9 @@ export default class Nav extends Component {
               </Link>
             </li>
           </LinkContent>
+          <FooterContent>
+            <Social />
+          </FooterContent>
         </NavContent>
       </>
     )

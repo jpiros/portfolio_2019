@@ -7,6 +7,7 @@ import Section from "./section"
 const WorkDescription = styled.p`
   a {
     color: #9773ff;
+    text-decoration: none;
     &:visited {
       color: #9773ff;
     }

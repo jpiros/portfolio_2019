@@ -2,8 +2,15 @@ import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+import {
+  IoIosMail,
+  IoLogoGithub,
+  IoLogoLinkedin,
+  IoLogoTwitter,
+} from "react-icons/io"
 
 import logo from "../images/jp_logo_light.png"
+import Social from "./social"
 
 const HomeWrapper = styled.div`
   position: fixed;
@@ -30,7 +37,7 @@ const HomeWrapper = styled.div`
   p {
     font-size: 2rem;
     color: #fff;
-    margin-left: 8px;
+    margin-left: 154px;
     @media (max-width: 991px) {
       font-size: 1.5rem;
       margin-left: 50px;
@@ -49,12 +56,19 @@ const HomeWrapper = styled.div`
 `
 
 const HomeSection = styled.div`
-  text-align: center;
   margin-left: 200px;
 
   @media (max-width: 767px) {
     margin-left: 0;
   }
+`
+
+const SocialWrapper = styled.div`
+  display: flex;
+  font-size: 3rem !important;
+  color: #fff !important;
+  margin-left: 138px;
+  align-self: flex-end;
 `
 
 const Home = () => (
@@ -80,8 +94,10 @@ const Home = () => (
                 <img src={logo} alt="Jason Piros Logo" />
                 JASON PIROS
               </h1>
-
               <p>Frontend Engineer</p>
+              <SocialWrapper>
+                <Social />
+              </SocialWrapper>
             </HomeSection>
           </BackgroundImage>
         </HomeWrapper>

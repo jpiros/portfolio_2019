@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import Header from "./header"
 import Section from "./section"
+import Social from "./social"
 import constants from "../utils/constants"
 
 const InputGroup = styled.div`
@@ -98,6 +99,13 @@ const Submit = styled.div`
   }
 `
 
+const SocialWrapper = styled.div`
+  display: flex;
+  font-size: 3rem;
+  justify-content: center;
+  margin-top: 4rem;
+`
+
 export default class ContactContent extends Component {
   state = {
     name: "",
@@ -167,6 +175,9 @@ export default class ContactContent extends Component {
               <button type="submit">Send Message</button>
             </Submit>
           </form>
+          <SocialWrapper>
+            <Social />
+          </SocialWrapper>
         </Section>
       </>
     )
