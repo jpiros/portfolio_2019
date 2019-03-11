@@ -201,8 +201,8 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: #fff;
-  background: #2c2d2f;
+  color: #000;
+  background: #fff;
   font-family: "Roboto", serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -212,10 +212,8 @@ body {
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
-body.lightMode {
-  background: #fff;
-}
 body.darkMode {
+  color: #fff;
   background: #2c2d2f;
 }
 img {

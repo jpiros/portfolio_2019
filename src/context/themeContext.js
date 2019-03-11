@@ -22,7 +22,7 @@ class ThemeProvider extends React.Component {
     if (dark) {
       document.body.classList.add("darkMode")
     } else {
-      document.body.classList.add("lightMode")
+      document.body.classList.remove("darkMode")
     }
   }
 
@@ -35,7 +35,7 @@ class ThemeProvider extends React.Component {
       this.setState({ dark: true })
       document.body.classList.add("darkMode")
     } else {
-      document.body.classList.add("lightMode")
+      document.body.classList.remove("darkMode")
     }
   }
 
