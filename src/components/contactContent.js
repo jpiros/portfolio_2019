@@ -128,6 +128,7 @@ export default class ContactContent extends Component {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
+            <input type="hidden" name="bot-field" />
             <InputGroup>
               <Input>
                 <input
