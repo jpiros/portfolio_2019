@@ -38,9 +38,9 @@ const Input = styled.div`
     position: relative;
     z-index: 1;
     background-color: transparent;
-    color: #fff;
+    color: inherit;
     &:focus {
-      border-color: #fff;
+      border-width: 3px;
       outline: none;
 
       & + label {
@@ -64,10 +64,9 @@ const Input = styled.div`
 `
 
 const Submit = styled.div`
-  display: flex;
-  justify-content: center;
+  position: relative;
 
-  button {
+  .submit {
     border: 2px solid ${constants.primary};
     color: ${constants.primary};
     padding: 10px 20px;
@@ -76,13 +75,16 @@ const Submit = styled.div`
     transition: all 0.3s ease;
     cursor: pointer;
     font-weight: 500;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     text-transform: uppercase;
+    z-index: 0;
+    left: 50%;
+    transform: translateX(-50%);
 
-    &:hover {
-      color: #17181b;
-      font-weight: 700;
+    &:hover,
+    &:focus {
+      color: #fff;
       &:after {
         opacity: 1;
         left: 0;
@@ -109,7 +111,12 @@ const SocialWrapper = styled.div`
   display: flex;
   font-size: 3rem;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 6rem;
+  color: ${constants.primary};
+
+  svg:hover {
+    color: ${constants.primary};
+  }
 `
 
 export default class ContactContent extends Component {
@@ -196,7 +203,9 @@ export default class ContactContent extends Component {
               </Input>
             </InputGroup>
             <Submit>
-              <button type="submit">Send Message</button>
+              <button type="submit" className="submit">
+                Send Message
+              </button>
             </Submit>
           </form>
           <SocialWrapper>

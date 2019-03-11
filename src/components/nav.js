@@ -137,6 +137,8 @@ const HeaderNav = styled.header`
     margin: 0;
     flex: 1;
     text-align: center;
+    color: #fff;
+    margin-left: 72px;
   }
   img {
     margin: 0 0.5rem 0 0;
@@ -147,6 +149,7 @@ const HeaderNav = styled.header`
     cursor: pointer;
     svg {
       font-size: 2rem;
+      color: #fff;
     }
   }
 `
