@@ -40,7 +40,7 @@ const HomeWrapper = styled.div`
     margin-left: 154px;
     @media (max-width: 991px) {
       font-size: 1.5rem;
-      margin-left: 50px;
+      margin-left: 96px;
     }
   }
 
@@ -69,6 +69,10 @@ const SocialWrapper = styled.div`
   color: #fff !important;
   margin-left: 138px;
   align-self: flex-end;
+
+  @media (max-width: 991px) {
+    margin-left: 78px;
+  }
 `
 
 const Home = () => (
