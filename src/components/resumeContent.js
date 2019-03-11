@@ -69,15 +69,17 @@ const ResumeGroup = styled.li`
   h4 {
     margin-bottom: 0.5rem;
     text-transform: uppercase;
+    font-size: 1.2rem;
   }
 
   h5 {
     margin-bottom: 0.5rem;
     color: #9773ff;
+    font-size: 0.9rem;
   }
 
   p {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 0;
   }
 `

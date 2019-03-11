@@ -14,8 +14,8 @@ const InputGroup = styled.div`
 `
 const Input = styled.div`
   position: relative;
-  width: 45%;
-  margin-bottom: 3rem;
+  width: 48%;
+  margin-bottom: 2.2rem;
 
   @media (max-width: 767px) {
     width: 100%;
