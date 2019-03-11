@@ -2,12 +2,6 @@ import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
-import {
-  IoIosMail,
-  IoLogoGithub,
-  IoLogoLinkedin,
-  IoLogoTwitter,
-} from "react-icons/io"
 
 import logo from "../images/jp_logo_light.png"
 import Social from "./social"

@@ -209,7 +209,6 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  padding: 2.8rem 1.8rem;
 }
 img {
   max-width: 100%;
@@ -615,4 +614,20 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+.light {
+  padding: 2.8rem 1.8rem;
+  color: #000;
+  background-color: #fff;
+}
+.light header {
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+}
+.dark {
+  padding: 2.8rem 1.8rem;
+  color: #fff;
+  background-color: #2c2d2f;
+}
+.dark header {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
 }

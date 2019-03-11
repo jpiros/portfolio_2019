@@ -8,8 +8,11 @@ import {
   FiFileText,
   FiMenu,
   FiMail,
+  FiMoon,
+  FiSun,
 } from "react-icons/fi"
 
+import ThemeContext from "../context/themeContext"
 import Social from "./social"
 import profile from "../images/profile.jpeg"
 import logo from "../images/jp_logo_light.png"
@@ -159,6 +162,60 @@ const FooterContent = styled.footer`
   height: 50px;
 `
 
+const ToggleMode = styled.div`
+  display: flex;
+  margin: 2rem 1.4rem;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #777;
+
+  &.darkToggled {
+    .moon {
+      color: #fff;
+    }
+    .toggleSwitch {
+      &:before {
+        left: 2px;
+        transition: left 0.5s ease;
+      }
+    }
+  }
+
+  &.lightToggled {
+    .sun {
+      color: #fff;
+    }
+    .toggleSwitch {
+      &:before {
+        left: 52px;
+        transition: left 0.5s ease;
+      }
+    }
+  }
+
+  .toggleSwitch {
+    width: 80px;
+    height: 30px;
+    background: #fff;
+    border-radius: 25px;
+    margin: 0 0.5rem;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #9773ff;
+      top: 2px;
+      left: 2px;
+    }
+  }
+`
+
 export default class Nav extends Component {
   state = {
     navToggled: false,
@@ -172,59 +229,80 @@ export default class Nav extends Component {
     const { location } = this.props
 
     return (
-      <>
-        <HeaderNav>
-          <h1>
-            <img src={logo} alt="Jason Piros Logo" />
-            JASON PIROS
-          </h1>
-          <div className="menuToggle">
-            <FiMenu onClick={() => this.toggleMenu()} />
-          </div>
-        </HeaderNav>
-        <NavContent className={this.state.navToggled ? "show" : ""}>
-          <ProfileContent>
-            <h1>Jason Piros</h1>
-            <img src={profile} alt="Jason Piros" />
-          </ProfileContent>
+      <ThemeContext.Consumer>
+        {theme => (
+          <>
+            <HeaderNav>
+              <h1>
+                <img src={logo} alt="Jason Piros Logo" />
+                JASON PIROS
+              </h1>
+              <div className="menuToggle">
+                <FiMenu onClick={() => this.toggleMenu()} />
+              </div>
+            </HeaderNav>
+            <NavContent className={this.state.navToggled ? "show" : ""}>
+              <ProfileContent>
+                <h1>Jason Piros</h1>
+                <img src={profile} alt="Jason Piros" />
+              </ProfileContent>
 
-          <LinkContent>
-            <li className={location.pathname === "/" ? "selected" : ""}>
-              <Link className="navLink" to="/">
-                <FiHome />
-                <span>Home</span>
-              </Link>
-            </li>
-            <li className={location.pathname === "/about" ? "selected" : ""}>
-              <Link className="navLink" to="/about">
-                <FiUser />
-                <span>About Me</span>
-              </Link>
-            </li>
-            <li className={location.pathname === "/work" ? "selected" : ""}>
-              <Link className="navLink" to="/work">
-                <FiBriefcase />
-                <span>Work</span>
-              </Link>
-            </li>
-            <li className={location.pathname === "/resume" ? "selected" : ""}>
-              <Link className="navLink" to="/resume">
-                <FiFileText />
-                <span>Resume</span>
-              </Link>
-            </li>
-            <li className={location.pathname === "/contact" ? "selected" : ""}>
-              <Link className="navLink" to="/contact">
-                <FiMail />
-                <span>Contact Me</span>
-              </Link>
-            </li>
-          </LinkContent>
-          <FooterContent>
-            <Social />
-          </FooterContent>
-        </NavContent>
-      </>
+              <LinkContent>
+                <li className={location.pathname === "/" ? "selected" : ""}>
+                  <Link className="navLink" to="/">
+                    <FiHome />
+                    <span>Home</span>
+                  </Link>
+                </li>
+                <li
+                  className={location.pathname === "/about" ? "selected" : ""}
+                >
+                  <Link className="navLink" to="/about">
+                    <FiUser />
+                    <span>About Me</span>
+                  </Link>
+                </li>
+                <li className={location.pathname === "/work" ? "selected" : ""}>
+                  <Link className="navLink" to="/work">
+                    <FiBriefcase />
+                    <span>Work</span>
+                  </Link>
+                </li>
+                <li
+                  className={location.pathname === "/resume" ? "selected" : ""}
+                >
+                  <Link className="navLink" to="/resume">
+                    <FiFileText />
+                    <span>Resume</span>
+                  </Link>
+                </li>
+                <li
+                  className={location.pathname === "/contact" ? "selected" : ""}
+                >
+                  <Link className="navLink" to="/contact">
+                    <FiMail />
+                    <span>Contact Me</span>
+                  </Link>
+                </li>
+              </LinkContent>
+              <ToggleMode
+                className={theme.dark ? "darkToggled" : "lightToggled"}
+              >
+                <FiMoon className="moon" />
+                <button
+                  type="button"
+                  className="toggleSwitch"
+                  onClick={theme.toggleDark}
+                />
+                <FiSun className="sun" />
+              </ToggleMode>
+              <FooterContent>
+                <Social />
+              </FooterContent>
+            </NavContent>
+          </>
+        )}
+      </ThemeContext.Consumer>
     )
   }
 }

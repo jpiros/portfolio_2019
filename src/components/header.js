@@ -15,7 +15,6 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
   padding-bottom: 10px;
   color: ${constants.primary};
   font-size: 2rem;

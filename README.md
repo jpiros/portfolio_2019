@@ -6,4 +6,4 @@ Things left to do:
 - Integrate GraphQL APIs
 - ~~Mobile Responsive~~
 - ~~Lazy-load background image~~
-- Light/Dark mode
+- ~~ Light/Dark mode ~~
