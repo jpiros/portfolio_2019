@@ -114,7 +114,7 @@ const LinkContent = styled.ul`
   }
 `
 
-const HeaderNav = styled.header`
+const HeaderNav = styled.div`
   position: fixed;
   top: -50px;
   left: 0;
@@ -178,7 +178,7 @@ const ToggleMode = styled.div`
     }
     .toggleSwitch {
       &:before {
-        left: 2px;
+        left: 3px;
         transition: left 0.5s ease;
       }
     }
@@ -205,6 +205,7 @@ const ToggleMode = styled.div`
     position: relative;
     outline: none;
     cursor: pointer;
+    border: none;
 
     &:before {
       content: "";
@@ -213,8 +214,8 @@ const ToggleMode = styled.div`
       height: 24px;
       border-radius: 50%;
       background: #9773ff;
-      top: 2px;
-      left: 2px;
+      top: 3px;
+      left: 3px;
     }
   }
 `

@@ -24,6 +24,10 @@ const ResumeGroup = styled.li`
   margin: 4rem;
   border-left: 2px solid ${constants.primary};
 
+  @media (max-width: 991px) {
+    margin-right: 2rem;
+  }
+
   &:before {
     content: "";
     position: absolute;

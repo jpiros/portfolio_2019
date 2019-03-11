@@ -647,3 +647,9 @@ pre tt:after {
 div[role="group"][tabindex] {
   height: 100%;
 }
+@media (max-width: 767px) {
+  .light,
+  .dark {
+    padding: 1.4rem 0.6rem;
+  }
+}
