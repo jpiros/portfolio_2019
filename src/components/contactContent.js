@@ -20,6 +20,12 @@ const Input = styled.div`
   @media (max-width: 767px) {
     width: 100%;
   }
+  &.error {
+    input,
+    textarea {
+      border-color: #ff424d;
+    }
+  }
   &.message {
     width: 100%;
   }
@@ -111,20 +117,21 @@ export default class ContactContent extends Component {
     name: "",
     email: "",
     message: "",
+    showError: false,
   }
 
   render() {
-    const handleNameChange = e => {
-      this.setState({ name: e.target.value })
+    const handleInputChange = e => {
+      this.setState({ [e.target.name]: e.target.value })
     }
 
-    const handleEmailChange = e => {
-      this.setState({ email: e.target.value })
+    const handleSubmit = e => {
+      if (!this.state.name || !this.state.email || !this.state.message) {
+        this.setState({ showError: true })
+        e.preventDefault()
+      }
     }
 
-    const handleMessageChange = e => {
-      this.setState({ message: e.target.value })
-    }
     return (
       <>
         <Header title="Contact Me" icon="contact" />
@@ -134,39 +141,56 @@ export default class ContactContent extends Component {
             name="contact"
             method="post"
             action="/success"
+            onSubmit={e => handleSubmit(e)}
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
             <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
             <InputGroup>
-              <Input>
+              <Input
+                className={
+                  this.state.showError && !this.state.name.length ? "error" : ""
+                }
+              >
                 <input
                   type="text"
                   name="name"
                   id="name"
                   className={this.state.name.length ? "filled" : ""}
-                  onChange={e => handleNameChange(e)}
+                  onChange={e => handleInputChange(e)}
                 />
                 <label htmlFor="name">Name</label>
               </Input>
-              <Input>
+              <Input
+                className={
+                  this.state.showError && !this.state.email.length
+                    ? "error"
+                    : ""
+                }
+              >
                 <input
                   type="text"
                   name="email"
                   id="email"
                   className={this.state.email.length ? "filled" : ""}
-                  onChange={e => handleEmailChange(e)}
+                  onChange={e => handleInputChange(e)}
                 />
                 <label htmlFor="email">Email</label>
               </Input>
-              <Input className="message">
+              <Input
+                className={`message ${
+                  this.state.showError && !this.state.message.length
+                    ? "error"
+                    : ""
+                }`}
+              >
                 <textarea
                   name="message"
                   id="message"
                   rows="6"
                   className={this.state.message.length ? "filled" : ""}
-                  onChange={e => handleMessageChange(e)}
+                  onChange={e => handleInputChange(e)}
                 />
                 <label htmlFor="message">Message</label>
               </Input>
