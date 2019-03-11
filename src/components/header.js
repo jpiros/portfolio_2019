@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { FiUser, FiHome, FiBriefcase, FiFileText } from "react-icons/fi"
+import { FiUser, FiHome, FiBriefcase, FiFileText, FiMail } from "react-icons/fi"
 
 import constants from "../utils/constants"
 
@@ -26,6 +26,7 @@ const icons = {
   home: <FiHome />,
   work: <FiBriefcase />,
   resume: <FiFileText />,
+  contact: <FiMail />,
 }
 
 const Header = ({ title, icon }) => {

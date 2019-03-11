@@ -11,6 +11,7 @@ const SectionHeader = styled.div`
     display: inline-block;
     padding: 0.3rem 0.5rem;
     position: relative;
+    font-size: 1.8rem;
     &:before {
       content: "";
       width: 2px;

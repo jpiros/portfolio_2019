@@ -1,7 +1,14 @@
 import React, { Component } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { FiUser, FiHome, FiBriefcase, FiFileText, FiMenu } from "react-icons/fi"
+import {
+  FiUser,
+  FiHome,
+  FiBriefcase,
+  FiFileText,
+  FiMenu,
+  FiMail,
+} from "react-icons/fi"
 
 import profile from "../images/profile.jpeg"
 import logo from "../images/jp_logo_light.png"
@@ -192,6 +199,12 @@ export default class Nav extends Component {
               <Link className="navLink" to="/resume">
                 <FiFileText />
                 <span>Resume</span>
+              </Link>
+            </li>
+            <li className={location.pathname === "/contact" ? "selected" : ""}>
+              <Link className="navLink" to="/contact">
+                <FiMail />
+                <span>Contact Me</span>
               </Link>
             </li>
           </LinkContent>
