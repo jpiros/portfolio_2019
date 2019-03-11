@@ -259,31 +259,35 @@ export default class Nav extends Component {
                   </Link>
                 </li>
                 <li
-                  className={location.pathname === "/about" ? "selected" : ""}
+                  className={location.pathname === "/about/" ? "selected" : ""}
                 >
-                  <Link className="navLink" to="/about">
+                  <Link className="navLink" to="/about/">
                     <FiUser />
                     <span>About Me</span>
                   </Link>
                 </li>
-                <li className={location.pathname === "/work" ? "selected" : ""}>
-                  <Link className="navLink" to="/work">
+                <li
+                  className={location.pathname === "/work/" ? "selected" : ""}
+                >
+                  <Link className="navLink" to="/work/">
                     <FiBriefcase />
                     <span>Work</span>
                   </Link>
                 </li>
                 <li
-                  className={location.pathname === "/resume" ? "selected" : ""}
+                  className={location.pathname === "/resume/" ? "selected" : ""}
                 >
-                  <Link className="navLink" to="/resume">
+                  <Link className="navLink" to="/resume/">
                     <FiFileText />
                     <span>Resume</span>
                   </Link>
                 </li>
                 <li
-                  className={location.pathname === "/contact" ? "selected" : ""}
+                  className={
+                    location.pathname === "/contact/" ? "selected" : ""
+                  }
                 >
-                  <Link className="navLink" to="/contact">
+                  <Link className="navLink" to="/contact/">
                     <FiMail />
                     <span>Contact Me</span>
                   </Link>
