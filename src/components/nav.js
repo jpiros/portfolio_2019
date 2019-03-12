@@ -172,6 +172,7 @@ const ToggleMode = styled.div`
   align-items: center;
   font-size: 1.2rem;
   color: #777;
+  padding: 1rem 0;
 
   &.darkToggled {
     .moon {
@@ -179,8 +180,8 @@ const ToggleMode = styled.div`
     }
     .toggleSwitch {
       &:before {
-        left: 3px;
-        transition: left 0.5s ease;
+        left: -3px;
+        transition: all 0.5s ease;
       }
     }
   }
@@ -190,17 +191,18 @@ const ToggleMode = styled.div`
       color: #fff;
     }
     .toggleSwitch {
+      background: #fff;
       &:before {
-        left: 52px;
-        transition: left 0.5s ease;
+        left: 22px;
+        transition: all 0.5s ease;
       }
     }
   }
 
   .toggleSwitch {
-    width: 80px;
-    height: 30px;
-    background: #fff;
+    width: 40px;
+    height: 14px;
+    background: #777;
     border-radius: 25px;
     margin: 0 0.5rem;
     position: relative;
@@ -211,12 +213,14 @@ const ToggleMode = styled.div`
     &:before {
       content: "";
       position: absolute;
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      background: #9773ff;
-      top: 3px;
-      left: 3px;
+      background: ${constants.primary};
+      top: -3px;
+      left: -3px;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14),
+        0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
     }
   }
 `
@@ -293,22 +297,21 @@ export default class Nav extends Component {
                     <span>Contact Me</span>
                   </Link>
                 </li>
-                {location.pathname !== "/" && (
-                  <li>
-                    <ToggleMode
-                      className={theme.dark ? "darkToggled" : "lightToggled"}
-                    >
-                      <FiMoon className="moon" />
-                      <button
-                        type="button"
-                        className="toggleSwitch"
-                        onClick={theme.toggleDark}
-                      />
-                      <FiSun className="sun" />
-                    </ToggleMode>
-                  </li>
-                )}
               </LinkContent>
+
+              {location.pathname !== "/" && (
+                <ToggleMode
+                  className={theme.dark ? "darkToggled" : "lightToggled"}
+                >
+                  <FiMoon className="moon" />
+                  <button
+                    type="button"
+                    className="toggleSwitch"
+                    onClick={theme.toggleDark}
+                  />
+                  <FiSun className="sun" />
+                </ToggleMode>
+              )}
 
               <FooterContent>
                 <Social />
