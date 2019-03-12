@@ -290,6 +290,7 @@ h4 {
   text-rendering: optimizeLegibility;
   font-size: 1rem;
   line-height: 1.1;
+  letter-spacing: 1px;
 }
 h5 {
   margin-left: 0;
@@ -306,6 +307,7 @@ h5 {
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
   line-height: 1.1;
+  letter-spacing: 1px;
 }
 h6 {
   margin-left: 0;

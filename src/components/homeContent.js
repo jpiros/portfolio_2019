@@ -14,27 +14,32 @@ const HomeWrapper = styled.div`
   right: 0;
 
   img {
-    width: 140px;
-    margin: 0 1rem 0 0;
-    @media (max-width: 991px) {
-      width: 80px;
+    width: 120px;
+    position: absolute;
+    left: -138px;
+    top: 11px;
+    margin: 0;
+    @media (max-width: 767px) {
+      width: 60px;
+      left: -78px;
+      top: 6px;
     }
   }
   h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     color: #fff;
 
-    @media (max-width: 991px) {
-      font-size: 3rem;
+    @media (max-width: 767px) {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
   }
   p {
     font-size: 2rem;
     color: #fff;
-    margin-left: 154px;
-    @media (max-width: 991px) {
+    @media (max-width: 767px) {
       font-size: 1.5rem;
-      margin-left: 96px;
+      margin-bottom: 1rem;
     }
   }
 
@@ -50,7 +55,8 @@ const HomeWrapper = styled.div`
 `
 
 const HomeSection = styled.div`
-  margin-left: 200px;
+  margin-left: 320px;
+  position: relative;
 
   @media (max-width: 767px) {
     margin-left: 0;
@@ -61,12 +67,8 @@ const SocialWrapper = styled.div`
   display: flex;
   font-size: 3rem !important;
   color: #fff !important;
-  margin-left: 138px;
   align-self: flex-end;
-
-  @media (max-width: 991px) {
-    margin-left: 78px;
-  }
+  margin-left: -0.3rem;
 `
 
 const Home = () => (
@@ -88,10 +90,8 @@ const Home = () => (
         <HomeWrapper>
           <BackgroundImage fluid={imageData} classId="bgImage">
             <HomeSection>
-              <h1>
-                <img src={logo} alt="Jason Piros Logo" />
-                JASON PIROS
-              </h1>
+              <img src={logo} alt="Jason Piros Logo" />
+              <h1>JASON PIROS</h1>
               <p>Frontend Engineer</p>
               <SocialWrapper>
                 <Social />

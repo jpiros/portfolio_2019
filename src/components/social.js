@@ -5,7 +5,7 @@ import { IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from "react-icons/io"
 const SocialWrapper = styled.div`
   a {
     font-size: inherit;
-    margin: 1rem 0.7rem 2rem;
+    margin: 1rem 1rem 2rem 0;
     cursor: pointer;
     color: inherit;
 

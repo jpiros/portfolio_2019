@@ -24,11 +24,13 @@ const NavContent = styled.aside`
   left: 0;
   bottom: 0;
   width: 200px;
-  overflow: hidden;
+  overflow: scroll;
   background: #17181b;
   color: #fff;
   z-index: 5;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: 767px) {
     left: -200px;
@@ -106,6 +108,9 @@ const LinkContent = styled.ul`
     &:visited {
       color: inherit;
     }
+    &:hover {
+      color: #fff;
+    }
 
     svg {
       font-size: 1.2rem;
@@ -138,7 +143,6 @@ const HeaderNav = styled.div`
     flex: 1;
     text-align: center;
     color: #fff;
-    margin-left: 72px;
   }
   img {
     margin: 0 0.5rem 0 0;
@@ -155,19 +159,16 @@ const HeaderNav = styled.div`
 `
 
 const FooterContent = styled.footer`
-  display: flex;
-  justify-content: space-around;
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
+  padding: 1rem 0 1rem 1.2rem;
   width: 100%;
   font-size: 2rem;
   color: #777;
-  height: 50px;
 `
 
 const ToggleMode = styled.div`
   display: flex;
-  margin: 2rem 1.4rem;
+  margin: 0 1.4rem;
   align-items: center;
   font-size: 1.2rem;
   color: #777;
@@ -292,18 +293,23 @@ export default class Nav extends Component {
                     <span>Contact Me</span>
                   </Link>
                 </li>
+                {location.pathname !== "/" && (
+                  <li>
+                    <ToggleMode
+                      className={theme.dark ? "darkToggled" : "lightToggled"}
+                    >
+                      <FiMoon className="moon" />
+                      <button
+                        type="button"
+                        className="toggleSwitch"
+                        onClick={theme.toggleDark}
+                      />
+                      <FiSun className="sun" />
+                    </ToggleMode>
+                  </li>
+                )}
               </LinkContent>
-              <ToggleMode
-                className={theme.dark ? "darkToggled" : "lightToggled"}
-              >
-                <FiMoon className="moon" />
-                <button
-                  type="button"
-                  className="toggleSwitch"
-                  onClick={theme.toggleDark}
-                />
-                <FiSun className="sun" />
-              </ToggleMode>
+
               <FooterContent>
                 <Social />
               </FooterContent>
