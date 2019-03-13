@@ -24,7 +24,7 @@ const NavContent = styled.aside`
   left: 0;
   bottom: 0;
   width: 200px;
-  overflow: scroll;
+  overflow: auto;
   background: #17181b;
   color: #fff;
   z-index: 5;
